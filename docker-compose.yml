@@ -11,6 +11,7 @@ services:
     links:
       - mongodb
       - rabbitmq
+    # ports: [ "8888:8888" ]
     depends_on:
       - rabbitmq
       - mongodb
