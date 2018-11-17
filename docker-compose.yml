@@ -1,0 +1,27 @@
+version: '3'
+services:
+  web:
+    build: .
+    image: vijos/vj4
+    restart: always
+    command: vj4.server
+    env_file: .env
+    volumes:
+        - ./data/run:/var/run/vj4
+    links:
+      - mongodb
+      - rabbitmq
+    depends_on:
+      - rabbitmq
+      - mongodb
+
+  rabbitmq:
+    restart: always
+    image: rabbitmq:latest
+    volumes:
+      - ./data/rabbitmq:/var/lib/rabbitmq
+  mongodb:
+    restart: always
+    image: mongo:latest
+    volumes:
+      - ./data/mongodb:/data/db
