@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import os, sys
-import subprocess
 
 vj4_global_args = [
     'db-host',
@@ -25,4 +24,4 @@ if cmd.startswith('vj4.'):
 else:
     payload = args
 
-subprocess.call(payload)
+os.execvp(payload[0],payload)
