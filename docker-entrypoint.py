@@ -4,6 +4,9 @@ import os, sys
 vj4_global_args = [
     'db-host',
     'db-name',
+    'db-username',
+    'db-password',
+    'db-auth'
 ]
 args = sys.argv[1:]
 cmd = args[0] if len(args) > 0 else 'vj4.server'
