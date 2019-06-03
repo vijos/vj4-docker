@@ -18,10 +18,12 @@ COPY --from=stage-node /app/src/LICENSE /app/src/README.md /app/src/requirements
 WORKDIR /app
 
 RUN apt-get update && \
-    apt-get install -y \
-        libmaxminddb0 mmdb-bin libmaxminddb-dev && \
-    apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* && \
+    apt-get install -y libmaxminddb0 mmdb-bin \
+        libmaxminddb-dev git build-essential && \
     python3 -m pip install -r requirements.txt && \
+    apt-get purge -y \
+        libmaxminddb-dev git build-essential && \
+    apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* && \
     curl "http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz" | gunzip -c > GeoLite2-City.mmdb
 
 ENV GIT_PYTHON_REFRESH=quiet
