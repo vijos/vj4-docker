@@ -16,6 +16,7 @@ Start your own Vijos 4 with Docker in minutes!
 
 ```bash
 git clone https://github.com/vijos/vj4-docker.git
+cd vj4-docker
 cp .env.example .env
 docker-compose up -d
 ```
