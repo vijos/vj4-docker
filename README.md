@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-	<small>[中文](./README.zh-CN.md)</small>
+	<small><a href="./README.zh-CN.md">中文</a></small>
 </p>
 
 ***
